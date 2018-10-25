@@ -7,14 +7,34 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    //MARK: UI
+    @IBOutlet weak var cameraView: UIView!
+    
+    //MARK: LifeCycle
+    override func viewDidAppear(_ animated: Bool) {
+        setupCamera()
     }
-
-
+    
+    //MARK: Others
+    let
+    mobileNet =  MobileNet(),
+    cameraHelper = CameraHelper()
+    
+    func setupCamera(){
+        let cameraFounded = cameraHelper.openSession()
+        if cameraFounded{
+            let layer = cameraHelper.layer
+            layer.frame = cameraView.frame
+            cameraView.layer.addSublayer(layer)
+            view.layoutIfNeeded()
+        } else {
+            let vc = UIAlertController(title: "Warning", message: "No camera", preferredStyle: .alert)
+            vc.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+            present(vc, animated: true, completion: nil)
+        }
+    }
 }
 

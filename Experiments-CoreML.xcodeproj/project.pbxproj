@@ -12,6 +12,8 @@
 		49742DA42181DED60065E0C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49742DA22181DED60065E0C4 /* Main.storyboard */; };
 		49742DA62181DED80065E0C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49742DA52181DED80065E0C4 /* Assets.xcassets */; };
 		49742DA92181DED80065E0C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49742DA72181DED80065E0C4 /* LaunchScreen.storyboard */; };
+		49742DB12181DFD90065E0C4 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 49742DB02181DFD90065E0C4 /* MobileNet.mlmodel */; };
+		49759E4B2181EF3C0004D7A6 /* CameraHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49759E4A2181EF3C0004D7A6 /* CameraHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		49742DA52181DED80065E0C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49742DA82181DED80065E0C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49742DAA2181DED80065E0C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49742DB02181DFD90065E0C4 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
+		49759E4A2181EF3C0004D7A6 /* CameraHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +60,22 @@
 			children = (
 				49742D9E2181DED60065E0C4 /* AppDelegate.swift */,
 				49742DA02181DED60065E0C4 /* ViewController.swift */,
+				49759E4A2181EF3C0004D7A6 /* CameraHelper.swift */,
 				49742DA22181DED60065E0C4 /* Main.storyboard */,
-				49742DA52181DED80065E0C4 /* Assets.xcassets */,
 				49742DA72181DED80065E0C4 /* LaunchScreen.storyboard */,
 				49742DAA2181DED80065E0C4 /* Info.plist */,
+				49742DB22181DFDF0065E0C4 /* SUpporting Files */,
 			);
 			path = "Experiments-CoreML";
+			sourceTree = "<group>";
+		};
+		49742DB22181DFDF0065E0C4 /* SUpporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				49742DB02181DFD90065E0C4 /* MobileNet.mlmodel */,
+				49742DA52181DED80065E0C4 /* Assets.xcassets */,
+			);
+			path = "SUpporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +151,8 @@
 			files = (
 				49742DA12181DED60065E0C4 /* ViewController.swift in Sources */,
 				49742D9F2181DED60065E0C4 /* AppDelegate.swift in Sources */,
+				49759E4B2181EF3C0004D7A6 /* CameraHelper.swift in Sources */,
+				49742DB12181DFD90065E0C4 /* MobileNet.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AW8RFH6CD4;
 				INFOPLIST_FILE = "Experiments-CoreML/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AW8RFH6CD4;
 				INFOPLIST_FILE = "Experiments-CoreML/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
