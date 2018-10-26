@@ -14,6 +14,7 @@
 		49742DA92181DED80065E0C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49742DA72181DED80065E0C4 /* LaunchScreen.storyboard */; };
 		49742DB12181DFD90065E0C4 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 49742DB02181DFD90065E0C4 /* MobileNet.mlmodel */; };
 		49759E4B2181EF3C0004D7A6 /* CameraHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49759E4A2181EF3C0004D7A6 /* CameraHelper.swift */; };
+		49ECC42B21832D5B003CF761 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ECC42A21832D5B003CF761 /* ImageHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		49742DAA2181DED80065E0C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49742DB02181DFD90065E0C4 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		49759E4A2181EF3C0004D7A6 /* CameraHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHelper.swift; sourceTree = "<group>"; };
+		49ECC42A21832D5B003CF761 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,24 +60,33 @@
 		49742D9D2181DED60065E0C4 /* Experiments-CoreML */ = {
 			isa = PBXGroup;
 			children = (
+				49ECC42C21832DC3003CF761 /* helpers */,
 				49742D9E2181DED60065E0C4 /* AppDelegate.swift */,
 				49742DA02181DED60065E0C4 /* ViewController.swift */,
-				49759E4A2181EF3C0004D7A6 /* CameraHelper.swift */,
 				49742DA22181DED60065E0C4 /* Main.storyboard */,
 				49742DA72181DED80065E0C4 /* LaunchScreen.storyboard */,
 				49742DAA2181DED80065E0C4 /* Info.plist */,
-				49742DB22181DFDF0065E0C4 /* SUpporting Files */,
+				49742DB22181DFDF0065E0C4 /* Supporting Files */,
 			);
 			path = "Experiments-CoreML";
 			sourceTree = "<group>";
 		};
-		49742DB22181DFDF0065E0C4 /* SUpporting Files */ = {
+		49742DB22181DFDF0065E0C4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				49742DB02181DFD90065E0C4 /* MobileNet.mlmodel */,
 				49742DA52181DED80065E0C4 /* Assets.xcassets */,
 			);
-			path = "SUpporting Files";
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		49ECC42C21832DC3003CF761 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				49759E4A2181EF3C0004D7A6 /* CameraHelper.swift */,
+				49ECC42A21832D5B003CF761 /* ImageHelper.swift */,
+			);
+			path = helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49742DA12181DED60065E0C4 /* ViewController.swift in Sources */,
+				49ECC42B21832D5B003CF761 /* ImageHelper.swift in Sources */,
 				49742D9F2181DED60065E0C4 /* AppDelegate.swift in Sources */,
 				49759E4B2181EF3C0004D7A6 /* CameraHelper.swift in Sources */,
 				49742DB12181DFD90065E0C4 /* MobileNet.mlmodel in Sources */,

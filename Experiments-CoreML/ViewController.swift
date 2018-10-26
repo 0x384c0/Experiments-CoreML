@@ -7,21 +7,25 @@
 //
 
 import UIKit
-import AVFoundation
 
 class ViewController: UIViewController {
     //MARK: UI
     @IBOutlet weak var cameraView: UIView!
+    @IBOutlet weak var classLabel: UILabel!
+    @IBOutlet weak var propsTextView: UITextView!
+    
     
     //MARK: LifeCycle
     override func viewDidAppear(_ animated: Bool) {
         setupCamera()
+        setupNN()
     }
     
     //MARK: Others
     let
     mobileNet =  MobileNet(),
     cameraHelper = CameraHelper()
+    var isNNetFree = true
     
     func setupCamera(){
         let cameraFounded = cameraHelper.openSession()
@@ -36,5 +40,28 @@ class ViewController: UIViewController {
             present(vc, animated: true, completion: nil)
         }
     }
+    func setupNN(){
+        cameraHelper.didOutputHandler = { pixelBuffer in
+            DispatchQueue.global(qos: .background).async {
+                if (self.isNNetFree){
+                    self.isNNetFree = false
+                    self.predictAndRender(pixelBuffer: pixelBuffer)
+                    self.isNNetFree = true
+                }
+            }
+        }
+    }
+    
+    func predictAndRender(pixelBuffer:CVPixelBuffer){
+        if  let pixelBuffer = ImageHelper.resize(pixelBuffer: pixelBuffer,to: CGSize(width: 224, height: 224)),
+            let prediction = try? self.mobileNet.prediction(image: pixelBuffer){
+            DispatchQueue.main.async {
+                self.classLabel.text = prediction.classLabel
+                let sortedProps = prediction.classLabelProbs.sorted(by: {$0.value > $1.value}).map{"\($0.value) \t\($0.key)"}
+                self.propsTextView.text = sortedProps.joined(separator: "\n")
+            }
+        } else {
+            print("predict error")
+        }
+    }
 }
-
