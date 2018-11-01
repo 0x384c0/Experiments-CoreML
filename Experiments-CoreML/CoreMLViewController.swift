@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CoreMLViewController: UIViewController {
     //MARK: UI
     @IBOutlet weak var cameraView: UIView!
     @IBOutlet weak var classLabel: UILabel!
