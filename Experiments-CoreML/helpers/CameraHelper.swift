@@ -10,6 +10,7 @@ import AVFoundation
 import UIKit
 
 class CameraHelper: NSObject{
+    //MARK: basic camera functions
     var didOutputHandler:((CVPixelBuffer)->())?
     func setup(cameraView:UIView) -> Bool {
         self.cameraView = cameraView
@@ -68,6 +69,7 @@ class CameraHelper: NSObject{
         session.stopRunning()
     }
     
+    //MARK: private
     private weak var cameraView:UIView!
     private let layer = AVSampleBufferDisplayLayer()
     private var session = AVCaptureSession()

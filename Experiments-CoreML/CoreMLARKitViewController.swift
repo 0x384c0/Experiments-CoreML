@@ -16,12 +16,16 @@ class CoreMLARKitViewController: UIViewController {
     @IBOutlet weak var sceneView: ARSCNView!
     @IBOutlet weak var classLabel: UILabel!
     @IBOutlet weak var propsTextView: UITextView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     //MARK: UI Actions
     @IBAction func sceneTap(_ sender: Any) {
         if let latestPrediction = latestPrediction{
             arKitHelper.addLabel(text: latestPrediction)
         }
+    }
+    @IBAction func debuInfoSwitch(_ sender: UISwitch) {
+        arKitHelper.showsStatistics = sender.isOn
     }
     
     //MARK: LifeCycle
@@ -46,6 +50,10 @@ class CoreMLARKitViewController: UIViewController {
         arKitHelper.didOutputHandler = {[weak self] pixelBuffer in
             guard let `self` = self else {return}
             self.makePrediction(pixelBuffer)
+        }
+        arKitHelper.planeFoundHandler = {[weak self] in
+            guard let `self` = self else {return}
+            self.activityIndicator.stopAnimating()
         }
     }
     private func makePrediction(_ pixelBuffer:CVPixelBuffer){

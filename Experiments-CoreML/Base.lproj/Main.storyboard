@@ -213,11 +213,15 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="props" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48P-Pn-yU7">
-                                        <rect key="frame" x="0.0" y="20.5" width="320" height="80.5"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="320" height="60.5"/>
                                         <color key="backgroundColor" white="1" alpha="0.5157320205" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LGp-nz-QEv">
+                                        <rect key="frame" x="0.0" y="81" width="320" height="20"/>
+                                        <color key="backgroundColor" white="1" alpha="0.5157320205" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -234,8 +238,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8zC-d0-2Sx"/>
                     </view>
-                    <navigationItem key="navigationItem" title="CoreML MobileNet ArKit" id="6vc-aj-P2c"/>
+                    <navigationItem key="navigationItem" title="CoreML MobileNet ArKit" id="6vc-aj-P2c">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="SdA-N4-KrB">
+                            <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="VzL-An-T6U">
+                                <rect key="frame" x="253" y="6.5" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="debuInfoSwitch:" destination="Khk-BT-K3Y" eventType="valueChanged" id="7BK-xV-N4P"/>
+                                </connections>
+                            </switch>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="LGp-nz-QEv" id="gAY-7W-cBk"/>
                         <outlet property="classLabel" destination="KkU-60-PXD" id="2NK-zp-kLW"/>
                         <outlet property="propsTextView" destination="48P-Pn-yU7" id="q5C-Ad-YcK"/>
                         <outlet property="sceneView" destination="RRn-1b-mZi" id="5XC-6m-lZl"/>

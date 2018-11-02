@@ -12,8 +12,7 @@ import ARKit
 @available(iOS 11.0, *)
 class ARKitHelper:NSObject{
     
-    private(set) var transform:CGAffineTransform!
-    
+    //MARK: basic camera functions
     var didOutputHandler:((CVPixelBuffer)->())?
     func setup(sceneView: ARSCNView){
         self.sceneView = sceneView
@@ -28,15 +27,31 @@ class ARKitHelper:NSObject{
     }
     func start(){
         let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .horizontal
+        if #available(iOS 11.3, *){
+            configuration.planeDetection = [.horizontal,.vertical]
+        } else {
+            configuration.planeDetection = .horizontal
+        }
         sceneView.session.run(configuration)
     }
     func stop(){
         sceneView.session.pause()
     }
     
+    //MARK: ARKit functions
+    private(set) var transform:CGAffineTransform!
+    var showsStatistics:Bool{
+        get{ return sceneView.showsStatistics }
+        set{
+            sceneView.showsStatistics = newValue
+            sceneView.debugOptions = newValue ? [.showFeaturePoints] : []
+        }
+    }
+    var planeFoundHandler:(()->())?
+    
+    //MARK: private
     private weak var sceneView:ARSCNView!
-    let bubbleDepth : Float = 0.01 // the 'depth' of 3D text
+    private let bubbleDepth : Float = 0.01 // the 'depth' of 3D text
     private var
     orient:UIInterfaceOrientation!,
     viewportSize:CGSize!
@@ -51,6 +66,40 @@ extension ARKitHelper:ARSCNViewDelegate{
                 transform = sceneView.session.currentFrame?.displayTransform(for: orient, viewportSize: viewportSize).inverted()
             }
             didOutputHandler?(pixelBuffer)
+        }
+    }
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        DispatchQueue.main.async { self.planeFoundHandler?() }
+        if (self.showsStatistics){
+            guard let planeAnchor = anchor as? ARPlaneAnchor else {preconditionFailure("could not get planeAnchor")}
+            print("anchor:\(anchor), node: \(node), node geometry: \(String(describing: node.geometry))")
+            
+            let geometry = SCNPlane(width: CGFloat(planeAnchor.extent.x),
+                                    height: CGFloat(planeAnchor.extent.z))
+            geometry.materials.first?.diffuse.contents = UIColor.yellow.withAlphaComponent(0.5)
+            
+            let planeNode = SCNNode(geometry: geometry)
+            planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2.0, 1, 0, 0)
+            
+            DispatchQueue.main.async(execute: {
+                node.addChildNode(planeNode)
+            })
+        }
+    }
+    func session(_ session: ARSession, cameraDidChangeTrackingState camera: ARCamera) {
+        switch camera.trackingState {
+        case .normal:
+            print("trackingState normal")
+        case .limited(.initializing):
+            print("trackingState limited initializing")
+        case .limited(.excessiveMotion):
+            print("trackingState limited excessiveMotion")
+        case .limited(.insufficientFeatures):
+            print("trackingState limited insufficientFeatures")
+        case .limited(.relocalizing):
+            print("trackingState limited relocalizing")
+        case .notAvailable:
+            print("trackingState notAvailable")
         }
     }
 }
