@@ -10,12 +10,7 @@ import AVFoundation
 import UIKit
 
 class CameraHelper: NSObject{
-    let layer = AVSampleBufferDisplayLayer()
     var didOutputHandler:((CVPixelBuffer)->())?
-    
-    private var session = AVCaptureSession()
-    private let sampleQueue = DispatchQueue(label: "CameraHelper.sampleQueue", attributes: [])
-    
     func setup(cameraView:UIView) -> Bool {
         //setup device
         let deviceMaybe = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
@@ -55,6 +50,11 @@ class CameraHelper: NSObject{
     func stop(){
         session.stopRunning()
     }
+    
+    private let layer = AVSampleBufferDisplayLayer()
+    private var session = AVCaptureSession()
+    private let sampleQueue = DispatchQueue(label: "CameraHelper.sampleQueue", attributes: [])
+    
 }
 
 

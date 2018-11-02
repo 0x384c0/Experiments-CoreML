@@ -28,26 +28,29 @@ class CoreMLViewController: UIViewController {
     }
     
     //MARK: Others
-    let
-    imageNNetHelper =  ImageNNetHelper(),
+    private let
+    imageNNetHelper = ImageNNetHelper(),
     cameraHelper = CameraHelper()
     
-    func setupCamera(){
+    private func setupCamera(){
         if !cameraHelper.setup(cameraView: cameraView){
             let vc = UIAlertController(title: "Warning", message: "No camera", preferredStyle: .alert)
             vc.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
             present(vc, animated: true, completion: nil)
         }
     }
-    func setupNN(){
+    private func setupNN(){
         cameraHelper.didOutputHandler = {[weak self] pixelBuffer in
             guard let `self` = self else {return}
-            self.imageNNetHelper.predict(pixelBuffer: pixelBuffer, completion: {[weak self] (classLabel, sortedProps)  in
-                guard let `self` = self else {return}
-                self.classLabel.text = classLabel
-                self.propsTextView.text = sortedProps.map{"\($0.value) \t\($0.key)"}.joined(separator: "\n")
-            })
+            self.makePrediction(pixelBuffer)
         }
+    }
+    private func makePrediction(_ pixelBuffer:CVPixelBuffer){
+        imageNNetHelper.predict(pixelBuffer: pixelBuffer, completion: {[weak self] (classLabel, sortedProps)  in
+            guard let `self` = self else {return}
+            self.classLabel.text = classLabel
+            self.propsTextView.text = sortedProps.map{"\($0.value) \t\($0.key)"}.joined(separator: "\n")
+        })
     }
     
     deinit { print("deinit \(type(of: self))") }

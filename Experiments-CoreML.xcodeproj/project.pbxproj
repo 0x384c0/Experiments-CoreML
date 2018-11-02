@@ -16,6 +16,7 @@
 		49759E4B2181EF3C0004D7A6 /* CameraHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49759E4A2181EF3C0004D7A6 /* CameraHelper.swift */; };
 		498F8584218B13BD0026DFBC /* CoreMLARKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F8583218B13BD0026DFBC /* CoreMLARKitViewController.swift */; };
 		498F8587218C01130026DFBC /* ImageNNetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F8586218C01130026DFBC /* ImageNNetHelper.swift */; };
+		498F8589218C30730026DFBC /* ARKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F8588218C30730026DFBC /* ARKitHelper.swift */; };
 		49ECC42B21832D5B003CF761 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ECC42A21832D5B003CF761 /* ImageHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		49759E4A2181EF3C0004D7A6 /* CameraHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHelper.swift; sourceTree = "<group>"; };
 		498F8583218B13BD0026DFBC /* CoreMLARKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLARKitViewController.swift; sourceTree = "<group>"; };
 		498F8586218C01130026DFBC /* ImageNNetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNNetHelper.swift; sourceTree = "<group>"; };
+		498F8588218C30730026DFBC /* ARKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitHelper.swift; sourceTree = "<group>"; };
 		49ECC42A21832D5B003CF761 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,7 @@
 				49759E4A2181EF3C0004D7A6 /* CameraHelper.swift */,
 				49ECC42A21832D5B003CF761 /* ImageHelper.swift */,
 				498F8586218C01130026DFBC /* ImageNNetHelper.swift */,
+				498F8588218C30730026DFBC /* ARKitHelper.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				498F8587218C01130026DFBC /* ImageNNetHelper.swift in Sources */,
 				49759E4B2181EF3C0004D7A6 /* CameraHelper.swift in Sources */,
 				49742DB12181DFD90065E0C4 /* MobileNet.mlmodel in Sources */,
+				498F8589218C30730026DFBC /* ARKitHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

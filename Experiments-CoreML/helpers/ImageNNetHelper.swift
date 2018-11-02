@@ -10,7 +10,7 @@ import CoreVideo
 
 
 class ImageNNetHelper {
-    
+    private(set) var isNNetFree = true
     typealias ImageNNetHelperCompletion = (String,[(key:String, value:Double)]) -> ()
     func predict(pixelBuffer:CVPixelBuffer,completion:@escaping ImageNNetHelperCompletion){
         DispatchQueue.global(qos: .background).async {[weak self] in
@@ -26,7 +26,6 @@ class ImageNNetHelper {
     
     
     private let mobileNet =  MobileNet()
-    private var isNNetFree = true
     private func predictAndSort(pixelBuffer:CVPixelBuffer,completion:@escaping ImageNNetHelperCompletion){
         if  let pixelBuffer = ImageHelper.resize(pixelBuffer: pixelBuffer,to: CGSize(width: 224, height: 224)),
             let prediction = try? self.mobileNet.prediction(image: pixelBuffer){
