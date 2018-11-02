@@ -16,15 +16,14 @@ class CameraHelper: NSObject{
     private var session = AVCaptureSession()
     private let sampleQueue = DispatchQueue(label: "CameraHelper.sampleQueue", attributes: [])
     
-    func openSession() -> Bool {
+    func setup(cameraView:UIView) -> Bool {
+        //setup device
         let deviceMaybe = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
         
         guard let device = deviceMaybe else {
             return false
         }
         let input = try! AVCaptureDeviceInput(device: device)
-        
-        
         
         let output = AVCaptureVideoDataOutput()
         output.setSampleBufferDelegate(self, queue: sampleQueue)
@@ -43,9 +42,18 @@ class CameraHelper: NSObject{
         output.videoSettings = settings as? [String : Any]
         
         
-        session.startRunning()
+        //add video layer
+        layer.frame = cameraView.frame
+        cameraView.layer.addSublayer(layer)
         
         return true
+    }
+    
+    func start(){
+        session.startRunning()
+    }
+    func stop(){
+        session.stopRunning()
     }
 }
 

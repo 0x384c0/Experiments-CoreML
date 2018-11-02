@@ -16,52 +16,39 @@ class CoreMLViewController: UIViewController {
     
     
     //MARK: LifeCycle
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidLoad() {
         setupCamera()
         setupNN()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        cameraHelper.start()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        cameraHelper.stop()
     }
     
     //MARK: Others
     let
-    mobileNet =  MobileNet(),
+    imageNNetHelper =  ImageNNetHelper(),
     cameraHelper = CameraHelper()
-    var isNNetFree = true
     
     func setupCamera(){
-        let cameraFounded = cameraHelper.openSession()
-        if cameraFounded{
-            let layer = cameraHelper.layer
-            layer.frame = cameraView.frame
-            cameraView.layer.addSublayer(layer)
-            view.layoutIfNeeded()
-        } else {
+        if !cameraHelper.setup(cameraView: cameraView){
             let vc = UIAlertController(title: "Warning", message: "No camera", preferredStyle: .alert)
             vc.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
             present(vc, animated: true, completion: nil)
         }
     }
     func setupNN(){
-        cameraHelper.didOutputHandler = { pixelBuffer in
-            DispatchQueue.global(qos: .background).async {
-                if (self.isNNetFree){
-                    self.isNNetFree = false
-                    self.predictAndRender(pixelBuffer: pixelBuffer)
-                    self.isNNetFree = true
-                }
-            }
+        cameraHelper.didOutputHandler = {[weak self] pixelBuffer in
+            guard let `self` = self else {return}
+            self.imageNNetHelper.predict(pixelBuffer: pixelBuffer, completion: {[weak self] (classLabel, sortedProps)  in
+                guard let `self` = self else {return}
+                self.classLabel.text = classLabel
+                self.propsTextView.text = sortedProps.map{"\($0.value) \t\($0.key)"}.joined(separator: "\n")
+            })
         }
     }
     
-    func predictAndRender(pixelBuffer:CVPixelBuffer){
-        if  let pixelBuffer = ImageHelper.resize(pixelBuffer: pixelBuffer,to: CGSize(width: 224, height: 224)),
-            let prediction = try? self.mobileNet.prediction(image: pixelBuffer){
-            DispatchQueue.main.async {
-                self.classLabel.text = prediction.classLabel
-                let sortedProps = prediction.classLabelProbs.sorted(by: {$0.value > $1.value}).map{"\($0.value) \t\($0.key)"}
-                self.propsTextView.text = sortedProps.joined(separator: "\n")
-            }
-        } else {
-            print("predict error")
-        }
-    }
+    deinit { print("deinit \(type(of: self))") }
 }
