@@ -22,7 +22,6 @@ class ARKitHelper:NSObject{
         viewportSize = sceneView.bounds.size
         
         sceneView.delegate = self
-        sceneView.showsStatistics = true
         sceneView.scene = SCNScene()
         sceneView.autoenablesDefaultLighting = true
         sceneView.preferredFramesPerSecond = 30

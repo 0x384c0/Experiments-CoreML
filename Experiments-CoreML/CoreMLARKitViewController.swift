@@ -14,6 +14,8 @@ import ARKit
 class CoreMLARKitViewController: UIViewController {
     //MARK: UI
     @IBOutlet weak var sceneView: ARSCNView!
+    @IBOutlet weak var classLabel: UILabel!
+    @IBOutlet weak var propsTextView: UITextView!
     
     //MARK: UI Actions
     @IBAction func sceneTap(_ sender: Any) {
@@ -50,9 +52,11 @@ class CoreMLARKitViewController: UIViewController {
         if
             imageNNetHelper.isNNetFree{
             let pixelBuffer = pixelBuffer.transform(transform: arKitHelper.transform)
-            imageNNetHelper.predict(pixelBuffer: pixelBuffer) {[weak self] (classLabel, _) in
+            imageNNetHelper.predict(pixelBuffer: pixelBuffer) {[weak self] (classLabel, sortedProps) in
                 guard let `self` = self else {return}
                 self.latestPrediction = classLabel
+                self.classLabel.text = classLabel
+                self.propsTextView.text = sortedProps.map{"\($0.value) \t\($0.key)"}.joined(separator: "\n")
             }
         }
     }

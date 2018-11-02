@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--CoreML Experiments-->
         <scene sceneID="RoH-Y9-16i">
             <objects>
                 <tableViewController id="AEP-IW-EUh" sceneMemberID="viewController">
@@ -21,17 +21,51 @@
                         <sections>
                             <tableViewSection id="OHD-aX-76C">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="NIf-0k-pqy" style="IBUITableViewCellStyleDefault" id="QBc-E2-bos">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Gis-EY-mMQ" detailTextLabel="7Ru-NA-gA3" style="IBUITableViewCellStyleSubtitle" id="BsT-3q-q67">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BsT-3q-q67" id="u8Z-j1-Gup">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Camera View" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gis-EY-mMQ">
+                                                    <rect key="frame" x="16" y="5" width="101" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="iOS 9 and higher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Ru-NA-gA3">
+                                                    <rect key="frame" x="16" y="25.5" width="95" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="vnO-kA-vwE" kind="show" id="QqW-3X-1EL"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="NIf-0k-pqy" detailTextLabel="uCe-3q-aYq" style="IBUITableViewCellStyleSubtitle" id="QBc-E2-bos">
+                                        <rect key="frame" x="0.0" y="44" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QBc-E2-bos" id="HWX-HO-Aui">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="CoreML MobileNet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NIf-0k-pqy">
-                                                    <rect key="frame" x="16" y="0.0" width="288" height="43.5"/>
+                                                    <rect key="frame" x="16" y="5" width="143.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="iOS 11 and higher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uCe-3q-aYq">
+                                                    <rect key="frame" x="16" y="25.5" width="98.5" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -41,17 +75,24 @@
                                             <segue destination="BYZ-38-t0r" kind="show" id="Vk1-0P-Jht"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Z8u-DH-Fk8" style="IBUITableViewCellStyleDefault" id="yBv-ZP-0Sf">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="Z8u-DH-Fk8" detailTextLabel="MrA-qP-vcl" style="IBUITableViewCellStyleSubtitle" id="yBv-ZP-0Sf">
+                                        <rect key="frame" x="0.0" y="88" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yBv-ZP-0Sf" id="voz-wk-8Qa">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="CoreML MobileNet ArKit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z8u-DH-Fk8">
-                                                    <rect key="frame" x="16" y="0.0" width="288" height="43.5"/>
+                                                    <rect key="frame" x="16" y="5" width="185.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="iOS 11 and higher, iPhone 6s and higher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MrA-qP-vcl">
+                                                    <rect key="frame" x="16" y="25.5" width="224.5" height="14.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -69,13 +110,29 @@
                             <outlet property="delegate" destination="AEP-IW-EUh" id="2FQ-0N-sxQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Jm9-Ls-kW8"/>
+                    <navigationItem key="navigationItem" title="CoreML Experiments" id="sE1-aE-nws"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1CX-e0-DW7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2124" y="-1346.176911544228"/>
         </scene>
-        <!--CoreML View Controller-->
+        <!--Camera View-->
+        <scene sceneID="0Oh-lI-hHZ">
+            <objects>
+                <viewController id="vnO-kA-vwE" customClass="CameraViewController" customModule="Experiments_CoreML" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vDT-gB-rfK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="qad-IU-yPf"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Camera View" id="YGH-SM-7Wx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YH5-bv-rO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1296" y="-399"/>
+        </scene>
+        <!--CoreML MobileNet-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CoreMLViewController" customModule="Experiments_CoreML" customModuleProvider="target" sceneMemberID="viewController">
@@ -88,21 +145,18 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3bh-Pj-kvt">
-                                <rect key="frame" x="0.0" y="426" width="320" height="142"/>
+                                <rect key="frame" x="0.0" y="454.5" width="320" height="113.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Class" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8M-yh-A3h">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="14"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
                                         <color key="backgroundColor" white="1" alpha="0.5157320205" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="props" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BSX-jg-RMa">
-                                        <rect key="frame" x="0.0" y="14" width="320" height="128"/>
+                                        <rect key="frame" x="0.0" y="20.5" width="320" height="93"/>
                                         <color key="backgroundColor" white="1" alpha="0.5157320205479452" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="128" id="F2W-Xt-0pw"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -112,7 +166,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3bh-Pj-kvt" secondAttribute="trailing" id="5Sn-Pf-in1"/>
-                            <constraint firstItem="3bh-Pj-kvt" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.25" id="6pC-FX-Vxq"/>
+                            <constraint firstItem="3bh-Pj-kvt" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.2" id="6pC-FX-Vxq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3bh-Pj-kvt" secondAttribute="bottom" id="JtJ-h1-mEA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7R4-ht-VBU" secondAttribute="bottom" id="OPd-jz-DuH"/>
                             <constraint firstItem="7R4-ht-VBU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Q6Q-nN-SVT"/>
@@ -122,7 +176,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3B2-Im-PKw"/>
+                    <navigationItem key="navigationItem" title="CoreML MobileNet" id="t4q-C9-Wbq"/>
                     <connections>
                         <outlet property="cameraView" destination="7R4-ht-VBU" id="gJI-45-h66"/>
                         <outlet property="classLabel" destination="F8M-yh-A3h" id="k29-0e-fpt"/>
@@ -131,9 +185,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1742" y="-413"/>
+            <point key="canvasLocation" x="2123" y="-406"/>
         </scene>
-        <!--CoreMLAR Kit View Controller-->
+        <!--CoreML MobileNet ArKit-->
         <scene sceneID="e5q-iA-S58">
             <objects>
                 <viewController id="Khk-BT-K3Y" customClass="CoreMLARKitViewController" customModule="Experiments_CoreML" customModuleProvider="target" sceneMemberID="viewController">
@@ -148,17 +202,42 @@
                                     <outletCollection property="gestureRecognizers" destination="gba-N5-aac" appends="YES" id="joq-bj-Wgo"/>
                                 </connections>
                             </arscnView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zCv-Ap-mvl">
+                                <rect key="frame" x="0.0" y="467" width="320" height="101"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Class" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkU-60-PXD">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
+                                        <color key="backgroundColor" white="1" alpha="0.5157320205" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="props" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48P-Pn-yU7">
+                                        <rect key="frame" x="0.0" y="20.5" width="320" height="80.5"/>
+                                        <color key="backgroundColor" white="1" alpha="0.5157320205" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="zCv-Ap-mvl" firstAttribute="height" secondItem="RRn-1b-mZi" secondAttribute="height" multiplier="0.2" id="2AJ-ZM-dAm"/>
                             <constraint firstItem="8zC-d0-2Sx" firstAttribute="bottom" secondItem="RRn-1b-mZi" secondAttribute="bottom" id="LMy-UE-68I"/>
+                            <constraint firstAttribute="trailing" secondItem="zCv-Ap-mvl" secondAttribute="trailing" id="Mb0-UH-VZK"/>
                             <constraint firstItem="8zC-d0-2Sx" firstAttribute="trailing" secondItem="RRn-1b-mZi" secondAttribute="trailing" id="ZNq-I4-vdG"/>
                             <constraint firstItem="RRn-1b-mZi" firstAttribute="leading" secondItem="8zC-d0-2Sx" secondAttribute="leading" id="iy8-WQ-xdI"/>
+                            <constraint firstItem="8zC-d0-2Sx" firstAttribute="bottom" secondItem="zCv-Ap-mvl" secondAttribute="bottom" id="qEW-Dr-FgX"/>
                             <constraint firstItem="RRn-1b-mZi" firstAttribute="top" secondItem="8zC-d0-2Sx" secondAttribute="top" id="soX-Uh-3jl"/>
+                            <constraint firstItem="zCv-Ap-mvl" firstAttribute="leading" secondItem="8zC-d0-2Sx" secondAttribute="leading" id="yWa-ht-QLr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8zC-d0-2Sx"/>
                     </view>
+                    <navigationItem key="navigationItem" title="CoreML MobileNet ArKit" id="6vc-aj-P2c"/>
                     <connections>
+                        <outlet property="classLabel" destination="KkU-60-PXD" id="2NK-zp-kLW"/>
+                        <outlet property="propsTextView" destination="48P-Pn-yU7" id="q5C-Ad-YcK"/>
                         <outlet property="sceneView" destination="RRn-1b-mZi" id="5XC-6m-lZl"/>
                     </connections>
                 </viewController>
@@ -169,7 +248,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2513" y="-413"/>
+            <point key="canvasLocation" x="2893" y="-406"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KWV-j5-w2n">

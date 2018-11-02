@@ -17,6 +17,7 @@
 		498F8584218B13BD0026DFBC /* CoreMLARKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F8583218B13BD0026DFBC /* CoreMLARKitViewController.swift */; };
 		498F8587218C01130026DFBC /* ImageNNetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F8586218C01130026DFBC /* ImageNNetHelper.swift */; };
 		498F8589218C30730026DFBC /* ARKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F8588218C30730026DFBC /* ARKitHelper.swift */; };
+		498F858B218C44C40026DFBC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F858A218C44C40026DFBC /* CameraViewController.swift */; };
 		49ECC42B21832D5B003CF761 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ECC42A21832D5B003CF761 /* ImageHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		498F8583218B13BD0026DFBC /* CoreMLARKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLARKitViewController.swift; sourceTree = "<group>"; };
 		498F8586218C01130026DFBC /* ImageNNetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNNetHelper.swift; sourceTree = "<group>"; };
 		498F8588218C30730026DFBC /* ARKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitHelper.swift; sourceTree = "<group>"; };
+		498F858A218C44C40026DFBC /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		49ECC42A21832D5B003CF761 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +70,7 @@
 			children = (
 				49ECC42C21832DC3003CF761 /* helpers */,
 				49742D9E2181DED60065E0C4 /* AppDelegate.swift */,
+				498F858A218C44C40026DFBC /* CameraViewController.swift */,
 				49742DA02181DED60065E0C4 /* CoreMLViewController.swift */,
 				498F8583218B13BD0026DFBC /* CoreMLARKitViewController.swift */,
 				49742DA22181DED60065E0C4 /* Main.storyboard */,
@@ -177,6 +180,7 @@
 				49759E4B2181EF3C0004D7A6 /* CameraHelper.swift in Sources */,
 				49742DB12181DFD90065E0C4 /* MobileNet.mlmodel in Sources */,
 				498F8589218C30730026DFBC /* ARKitHelper.swift in Sources */,
+				498F858B218C44C40026DFBC /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
