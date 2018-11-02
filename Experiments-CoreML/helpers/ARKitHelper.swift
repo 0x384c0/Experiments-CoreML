@@ -9,6 +9,7 @@
 import SceneKit
 import ARKit
 
+@available(iOS 11.0, *)
 class ARKitHelper:NSObject{
     
     private(set) var transform:CGAffineTransform!
@@ -43,6 +44,7 @@ class ARKitHelper:NSObject{
     
 }
 
+@available(iOS 11.0, *)
 extension ARKitHelper:ARSCNViewDelegate{
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         if let pixelBuffer = sceneView.session.currentFrame?.capturedImage{
@@ -54,6 +56,7 @@ extension ARKitHelper:ARSCNViewDelegate{
     }
 }
 
+@available(iOS 11.0, *)
 extension ARKitHelper{
     func addLabel(text:String){
         let screenCentre : CGPoint = CGPoint(x: self.sceneView.bounds.midX, y: self.sceneView.bounds.midY)

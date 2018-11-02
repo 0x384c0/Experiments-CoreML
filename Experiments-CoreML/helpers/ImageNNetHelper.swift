@@ -9,6 +9,7 @@
 import CoreVideo
 
 
+@available(iOS 11.0, *)
 class ImageNNetHelper {
     private(set) var isNNetFree = true
     typealias ImageNNetHelperCompletion = (String,[(key:String, value:Double)]) -> ()

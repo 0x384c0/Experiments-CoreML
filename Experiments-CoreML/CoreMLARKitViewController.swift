@@ -10,6 +10,7 @@ import UIKit
 import SceneKit
 import ARKit
 
+@available(iOS 11.0, *)
 class CoreMLARKitViewController: UIViewController {
     //MARK: UI
     @IBOutlet weak var sceneView: ARSCNView!

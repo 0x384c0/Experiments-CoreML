@@ -13,7 +13,15 @@ class CameraHelper: NSObject{
     var didOutputHandler:((CVPixelBuffer)->())?
     func setup(cameraView:UIView) -> Bool {
         //setup device
-        let deviceMaybe = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
+        var deviceMaybe:AVCaptureDevice?
+        if #available(iOS 10.0, *) {
+            deviceMaybe = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
+        } else {
+            deviceMaybe = AVCaptureDevice.devices(for: .video)
+                .map { $0 }
+                .filter { $0.position == .back}
+                .first
+        }
         
         guard let device = deviceMaybe else {
             return false

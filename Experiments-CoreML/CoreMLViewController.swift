@@ -28,8 +28,9 @@ class CoreMLViewController: UIViewController {
     }
     
     //MARK: Others
+    private let imageNNetHelper = ImageNNetHelper()
+    
     private let
-    imageNNetHelper = ImageNNetHelper(),
     cameraHelper = CameraHelper()
     
     private func setupCamera(){
