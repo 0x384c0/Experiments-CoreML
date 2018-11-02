@@ -12,6 +12,7 @@ import UIKit
 class CameraHelper: NSObject{
     var didOutputHandler:((CVPixelBuffer)->())?
     func setup(cameraView:UIView) -> Bool {
+        self.cameraView = cameraView
         //setup device
         var deviceMaybe:AVCaptureDevice?
         if #available(iOS 10.0, *) {
@@ -46,19 +47,28 @@ class CameraHelper: NSObject{
         
         
         //add video layer
-        layer.frame = cameraView.frame
+        layer.videoGravity = .resizeAspectFill
+        layer.backgroundColor = UIColor.black.cgColor
+        
         cameraView.layer.addSublayer(layer)
         
         return true
     }
     
     func start(){
+        cameraView.setNeedsLayout()
+        cameraView.layoutIfNeeded()
+        layer.bounds = cameraView.bounds
+        layer.frame = cameraView.frame
+        layer.position = CGPoint(x: cameraView.bounds.midX, y: cameraView.bounds.midY)
+        
         session.startRunning()
     }
     func stop(){
         session.stopRunning()
     }
     
+    private weak var cameraView:UIView!
     private let layer = AVSampleBufferDisplayLayer()
     private var session = AVCaptureSession()
     private let sampleQueue = DispatchQueue(label: "CameraHelper.sampleQueue", attributes: [])
