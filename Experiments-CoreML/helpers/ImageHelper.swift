@@ -72,3 +72,23 @@ extension UIImage {
     }
 }
 
+extension CVPixelBuffer{
+    func transform(transform:CGAffineTransform) -> CVPixelBuffer{
+        let finalImage = CIImage(cvPixelBuffer: self).transformed(by: transform)
+        let pixelBuffer = finalImage.getPixelBuffer()!
+        return pixelBuffer
+    }
+}
+
+extension CIImage{
+    func getPixelBuffer() -> CVPixelBuffer?{
+        let ctx = CIContext()
+        if let cgImage = ctx.createCGImage(self, from: self.extent){
+            let uiImage = UIImage(cgImage: cgImage)
+            if let buffer = uiImage.pixelBuffer(width: Int(uiImage.size.width), height: Int(uiImage.size.height)){
+                return buffer
+            }
+        }
+        return nil
+    }
+}

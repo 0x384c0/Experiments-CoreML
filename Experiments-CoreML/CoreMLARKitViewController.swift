@@ -31,13 +31,25 @@ class CoreMLARKitViewController: UIViewController {
     }
     
     //MARK: Others
-    let latestPrediction = "TEST LABEL"
+    let imageNNetHelper =  ImageNNetHelper()
+    
+    var latestPrediction = "TEST LABEL"
     let bubbleDepth : Float = 0.01 // the 'depth' of 3D text
+    
+    
+    var orient:UIInterfaceOrientation!
+    var viewportSize:CGSize!
+    
     func setup(){
+        
+        orient = UIApplication.shared.statusBarOrientation
+        viewportSize = sceneView.bounds.size
+        
         sceneView.delegate = self
         sceneView.showsStatistics = true
         sceneView.scene = SCNScene()
         sceneView.autoenablesDefaultLighting = true
+        sceneView.preferredFramesPerSecond = 30
     }
     func run(){
         let configuration = ARWorldTrackingConfiguration()
@@ -100,11 +112,24 @@ class CoreMLARKitViewController: UIViewController {
         
         return bubbleNodeParent
     }
+    
+    deinit { print("deinit \(type(of: self))") }
 }
 
 
 extension CoreMLARKitViewController: ARSCNViewDelegate{
-    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        if let pixelBuffer = sceneView.session.currentFrame?.capturedImage{
+            
+            let transform = sceneView.session.currentFrame!.displayTransform(for: orient, viewportSize: viewportSize).inverted()
+            let pixelBuffer = pixelBuffer.transform(transform: transform)
+            
+            imageNNetHelper.predict(pixelBuffer: pixelBuffer) {[weak self] (classLabel, _) in
+                guard let `self` = self else {return}
+                self.latestPrediction = classLabel
+            }
+        }
+    }
 }
 
 
