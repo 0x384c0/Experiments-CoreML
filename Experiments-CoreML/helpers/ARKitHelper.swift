@@ -26,6 +26,7 @@ class ARKitHelper:NSObject{
         sceneView.preferredFramesPerSecond = 30
     }
     func start(){
+        addObservers()
         let configuration = ARWorldTrackingConfiguration()
         if #available(iOS 11.3, *){
             configuration.planeDetection = [.horizontal,.vertical]
@@ -35,6 +36,7 @@ class ARKitHelper:NSObject{
         sceneView.session.run(configuration)
     }
     func stop(){
+        removeObservers()
         sceneView.session.pause()
     }
     
@@ -56,6 +58,30 @@ class ARKitHelper:NSObject{
     orient:UIInterfaceOrientation!,
     viewportSize:CGSize!
     
+    private func addObservers(){
+        NotificationCenter.default.addObserver(self, selector: #selector(thermalStateChanged), name: ProcessInfo.thermalStateDidChangeNotification,    object: nil)
+    }
+    private func removeObservers(){
+        NotificationCenter.default.removeObserver(self)
+    }
+    @objc
+    func thermalStateChanged(notification: NSNotification) {
+        if let processInfo = notification.object as? ProcessInfo {
+            switch processInfo.thermalState{
+            case .nominal:
+                print("thermalStateChanged nominal")
+            case .fair:
+                print("thermalStateChanged fair")
+            case .serious:
+                print("thermalStateChanged serious")
+            case .critical:
+                print("thermalStateChanged critical")
+            }
+        }
+    }
+    deinit {
+        removeObservers()
+    }
 }
 
 @available(iOS 11.0, *)
