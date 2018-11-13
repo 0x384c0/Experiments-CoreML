@@ -59,9 +59,12 @@ class CameraHelper: NSObject{
     func start(){
         cameraView.setNeedsLayout()
         cameraView.layoutIfNeeded()
+        CATransaction.begin()
+        CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
         layer.bounds = cameraView.bounds
         layer.frame = cameraView.frame
         layer.position = CGPoint(x: cameraView.bounds.midX, y: cameraView.bounds.midY)
+        CATransaction.commit()
         
         session.startRunning()
     }
