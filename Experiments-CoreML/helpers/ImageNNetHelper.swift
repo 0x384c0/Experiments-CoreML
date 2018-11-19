@@ -26,18 +26,42 @@ class ImageNNetHelper {
     
     
     
-    private let mobileNet =  MobileNet()
+    
+    static var useCustomModel = false
+    private let
+    mobileNet = MobileNet(),
+    customImageClassifier = CustomImageClassifier(),
+    imageSize = CGSize(width: 224, height: 224)
+    
     private func predictAndSort(pixelBuffer:CVPixelBuffer,completion:@escaping ImageNNetHelperCompletion){
-        if  let pixelBuffer = ImageHelper.resize(pixelBuffer: pixelBuffer,to: CGSize(width: 224, height: 224)),
-            let prediction = try? self.mobileNet.prediction(image: pixelBuffer){
-            let sortedProps = prediction.classLabelProbs.sorted(by: {$0.value > $1.value})
-            DispatchQueue.main.async {
-                completion(prediction.classLabel, sortedProps)
+        do {
+            if ImageNNetHelper.useCustomModel{
+                if  let pixelBuffer = ImageHelper.resize(pixelBuffer: pixelBuffer,to: imageSize){
+                    let prediction = try customImageClassifier.prediction(image: pixelBuffer)
+                    let sortedProps = prediction.classLabelProbs.sorted(by: {$0.value > $1.value})
+                    DispatchQueue.main.async {
+                        completion(prediction.classLabel, sortedProps)
+                    }
+                } else {
+                    print("ImageNNetHelper predict error")
+                }
+            } else {
+                if  let pixelBuffer = ImageHelper.resize(pixelBuffer: pixelBuffer,to: imageSize){
+                    let prediction = try mobileNet.prediction(image: pixelBuffer)
+                    let sortedProps = prediction.classLabelProbs.sorted(by: {$0.value > $1.value})
+                    DispatchQueue.main.async {
+                        completion(prediction.classLabel, sortedProps)
+                    }
+                } else {
+                    print("ImageNNetHelper predict error")
+                }
             }
-        } else {
-            print("ImageNNetHelper predict error")
+        } catch {
+            print(error)
         }
     }
     
     
 }
+
+

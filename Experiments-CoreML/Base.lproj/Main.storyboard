@@ -13,7 +13,7 @@
         <!--CoreML Experiments-->
         <scene sceneID="RoH-Y9-16i">
             <objects>
-                <tableViewController id="AEP-IW-EUh" sceneMemberID="viewController">
+                <tableViewController id="AEP-IW-EUh" customClass="MainTableViewController" customModule="Experiments_CoreML" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RFw-fk-uz9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -101,6 +101,34 @@
                                         <connections>
                                             <segue destination="Khk-BT-K3Y" kind="show" id="H5c-Vo-HdN"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="byY-Qk-uoO">
+                                        <rect key="frame" x="0.0" y="132" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="byY-Qk-uoO" id="maq-aa-B5l">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dx7-v7-YLN">
+                                                    <rect key="frame" x="255" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="customModelSwitch:" destination="AEP-IW-EUh" eventType="valueChanged" id="0NP-za-pXF"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use custom model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6O-sO-61M">
+                                                    <rect key="frame" x="16" y="11.5" width="143" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Dx7-v7-YLN" secondAttribute="trailing" constant="16" id="GdD-Bu-JKJ"/>
+                                                <constraint firstItem="Dx7-v7-YLN" firstAttribute="centerY" secondItem="maq-aa-B5l" secondAttribute="centerY" id="VM9-3a-T0j"/>
+                                                <constraint firstItem="r6O-sO-61M" firstAttribute="centerY" secondItem="maq-aa-B5l" secondAttribute="centerY" id="fcv-Tc-igC"/>
+                                                <constraint firstItem="r6O-sO-61M" firstAttribute="leading" secondItem="maq-aa-B5l" secondAttribute="leading" constant="16" id="mjz-L9-ifi"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
