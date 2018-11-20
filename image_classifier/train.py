@@ -1,7 +1,15 @@
 import os
 from keras import callbacks
-from model import get_model
 from train_data_generators import batch_size, train_generator, validation_generator, img_width, img_height
+
+def is_mobile_net_v2():
+	return os.getenv('MOBILE_NET_V2', "False") == "True"
+
+if is_mobile_net_v2():
+	from mobile_net_v2 import get_model
+else:
+	from mobile_net import get_model
+
 
 # building model
 num_classes = len(train_generator.class_indices)

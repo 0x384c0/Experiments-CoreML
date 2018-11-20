@@ -3,7 +3,7 @@ from keras.applications.mobilenet import MobileNet
 from keras import backend as K
 
 def get_model(num_classes,img_width,img_height):
-
+	print("Using MobileNet")
 	if K.image_data_format() == 'channels_first':
 		input_shape = (3, img_width, img_height)
 	else:
