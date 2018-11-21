@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.5"></script>
+		<script type="text/javascript" src="model/classes.js"></script>
+		<script type="text/javascript" src="js/NNet.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<img id="imageBox" class="imageBox">
+			<br>
+			<input id="picField" type="file" name="pic" accept="image/*">
+			<button id="predictButton">Predict</button>
+			<br>
+			<div id="resultsBox" class="resultsBox">...</div>
+		</div>
+		<div class="hidden" id="loadingIndicator"></div>
+	</body>
+<html>

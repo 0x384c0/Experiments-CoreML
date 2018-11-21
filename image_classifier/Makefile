@@ -14,6 +14,11 @@ setup_mobile_net_v2:
 	echo "Dont forget to change env"
 	read -n 1
 	pip install -r requirements_mobile_net_v2.txt
+	
+setup_tf_js:
+	echo "Dont forget to change env"
+	read -n 1
+	pip install -r requirements_tf_js.txt
 
 train:
 	python train.py
@@ -24,6 +29,9 @@ train_mobile_net_v2:
 
 to_core_ml:
 	python to_core_ml.py
+
+to_tf_js:
+	python to_tf_js.py
 
 #utils
 clean:

@@ -8,6 +8,9 @@ from train_data_generators import train_generator, image_scale
 model_filename = 'tmp/model.h5'
 coreml_filename = 'tmp/CustomImageClassifier.mlmodel'
 
+
+print("Keras must be 2.1.6, Model can be MobileNet or MobileNet V2")
+
 #get labels
 class_labels = list(train_generator.class_indices.keys())
 
