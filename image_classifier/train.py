@@ -16,14 +16,13 @@ num_classes = len(train_generator.class_indices)
 model = get_model(num_classes,img_width,img_height)
 
 # training process
-weights_filename = 'tmp/weights.h5'
 model_and_weights_filename = 'tmp/model.h5'
 nb_train_samples = 2000
 nb_validation_samples = 800
 epochs = 25
 
-if os.path.isfile(weights_filename):
-	model.load_weights(weights_filename)
+if os.path.isfile(model_and_weights_filename):
+	model.load_weights(model_and_weights_filename)
 
 tb = callbacks.TensorBoard(log_dir='tmp/TensorBoard/logs', histogram_freq=0, write_graph=False, write_images=True)
 es = callbacks.EarlyStopping(monitor='val_loss', min_delta=0, patience=20, verbose=0, mode='auto')

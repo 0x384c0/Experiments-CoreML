@@ -16,8 +16,6 @@ text_file = open(tfjs_classes_file, "w+")
 text_file.write("const IMAGENET_CLASSES = %s" % class_labels_string)
 text_file.close()
 
-exit()
-
 print("Keras must be 2.1.6, model must be MobileNet")
 # with CustomObjectScope({'relu6': keras.layers.ReLU(6.),'DepthwiseConv2D': keras.layers.DepthwiseConv2D}): # https://github.com/keras-team/keras/issues/7431#issuecomment-413450470
 with CustomObjectScope({'relu6': keras.applications.mobilenet.relu6,'DepthwiseConv2D': keras.applications.mobilenet.DepthwiseConv2D}): # https://github.com/keras-team/keras/issues/7431#issuecomment-334959500

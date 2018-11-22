@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4922CAAD21A7A92700FC5122 /* CustomImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4922CAAC21A7A92700FC5122 /* CustomImageClassifier.mlmodel */; };
 		49742D9F2181DED60065E0C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49742D9E2181DED60065E0C4 /* AppDelegate.swift */; };
 		49742DA12181DED60065E0C4 /* CoreMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49742DA02181DED60065E0C4 /* CoreMLViewController.swift */; };
 		49742DA42181DED60065E0C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49742DA22181DED60065E0C4 /* Main.storyboard */; };
@@ -18,12 +19,12 @@
 		498F8587218C01130026DFBC /* ImageNNetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F8586218C01130026DFBC /* ImageNNetHelper.swift */; };
 		498F8589218C30730026DFBC /* ARKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F8588218C30730026DFBC /* ARKitHelper.swift */; };
 		498F858B218C44C40026DFBC /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F858A218C44C40026DFBC /* CameraViewController.swift */; };
-		49BAA39921A2D55E00CC72DC /* CustomImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 49BAA39821A2D55E00CC72DC /* CustomImageClassifier.mlmodel */; };
 		49BAA39B21A2D7FE00CC72DC /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BAA39A21A2D7FE00CC72DC /* MainTableViewController.swift */; };
 		49ECC42B21832D5B003CF761 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ECC42A21832D5B003CF761 /* ImageHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4922CAAC21A7A92700FC5122 /* CustomImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CustomImageClassifier.mlmodel; sourceTree = "<group>"; };
 		49742D9B2181DED60065E0C4 /* Experiments-CoreML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Experiments-CoreML.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49742D9E2181DED60065E0C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49742DA02181DED60065E0C4 /* CoreMLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLViewController.swift; sourceTree = "<group>"; };
@@ -37,7 +38,6 @@
 		498F8586218C01130026DFBC /* ImageNNetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNNetHelper.swift; sourceTree = "<group>"; };
 		498F8588218C30730026DFBC /* ARKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitHelper.swift; sourceTree = "<group>"; };
 		498F858A218C44C40026DFBC /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		49BAA39821A2D55E00CC72DC /* CustomImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CustomImageClassifier.mlmodel; sourceTree = "<group>"; };
 		49BAA39A21A2D7FE00CC72DC /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		49ECC42A21832D5B003CF761 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,8 +89,8 @@
 		49742DB22181DFDF0065E0C4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				49BAA39821A2D55E00CC72DC /* CustomImageClassifier.mlmodel */,
 				49742DB02181DFD90065E0C4 /* MobileNet.mlmodel */,
+				4922CAAC21A7A92700FC5122 /* CustomImageClassifier.mlmodel */,
 				49742DA52181DED80065E0C4 /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
@@ -179,7 +179,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				49BAA39B21A2D7FE00CC72DC /* MainTableViewController.swift in Sources */,
-				49BAA39921A2D55E00CC72DC /* CustomImageClassifier.mlmodel in Sources */,
 				498F8584218B13BD0026DFBC /* CoreMLARKitViewController.swift in Sources */,
 				49742DA12181DED60065E0C4 /* CoreMLViewController.swift in Sources */,
 				49ECC42B21832D5B003CF761 /* ImageHelper.swift in Sources */,
@@ -187,6 +186,7 @@
 				498F8587218C01130026DFBC /* ImageNNetHelper.swift in Sources */,
 				49759E4B2181EF3C0004D7A6 /* CameraHelper.swift in Sources */,
 				49742DB12181DFD90065E0C4 /* MobileNet.mlmodel in Sources */,
+				4922CAAD21A7A92700FC5122 /* CustomImageClassifier.mlmodel in Sources */,
 				498F8589218C30730026DFBC /* ARKitHelper.swift in Sources */,
 				498F858B218C44C40026DFBC /* CameraViewController.swift in Sources */,
 			);
