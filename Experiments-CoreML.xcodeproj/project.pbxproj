@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4922CAAD21A7A92700FC5122 /* CustomImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4922CAAC21A7A92700FC5122 /* CustomImageClassifier.mlmodel */; };
 		49742D9F2181DED60065E0C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49742D9E2181DED60065E0C4 /* AppDelegate.swift */; };
 		49742DA12181DED60065E0C4 /* CoreMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49742DA02181DED60065E0C4 /* CoreMLViewController.swift */; };
 		49742DA42181DED60065E0C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49742DA22181DED60065E0C4 /* Main.storyboard */; };
@@ -15,6 +14,7 @@
 		49742DA92181DED80065E0C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49742DA72181DED80065E0C4 /* LaunchScreen.storyboard */; };
 		49742DB12181DFD90065E0C4 /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 49742DB02181DFD90065E0C4 /* MobileNet.mlmodel */; };
 		49759E4B2181EF3C0004D7A6 /* CameraHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49759E4A2181EF3C0004D7A6 /* CameraHelper.swift */; };
+		4986E9BF21A81618005F04FB /* CustomImageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4986E9BE21A81618005F04FB /* CustomImageClassifier.mlmodel */; };
 		498F8584218B13BD0026DFBC /* CoreMLARKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F8583218B13BD0026DFBC /* CoreMLARKitViewController.swift */; };
 		498F8587218C01130026DFBC /* ImageNNetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F8586218C01130026DFBC /* ImageNNetHelper.swift */; };
 		498F8589218C30730026DFBC /* ARKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498F8588218C30730026DFBC /* ARKitHelper.swift */; };
@@ -24,7 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4922CAAC21A7A92700FC5122 /* CustomImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CustomImageClassifier.mlmodel; sourceTree = "<group>"; };
 		49742D9B2181DED60065E0C4 /* Experiments-CoreML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Experiments-CoreML.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49742D9E2181DED60065E0C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49742DA02181DED60065E0C4 /* CoreMLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +33,7 @@
 		49742DAA2181DED80065E0C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49742DB02181DFD90065E0C4 /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		49759E4A2181EF3C0004D7A6 /* CameraHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraHelper.swift; sourceTree = "<group>"; };
+		4986E9BE21A81618005F04FB /* CustomImageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = CustomImageClassifier.mlmodel; sourceTree = "<group>"; };
 		498F8583218B13BD0026DFBC /* CoreMLARKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMLARKitViewController.swift; sourceTree = "<group>"; };
 		498F8586218C01130026DFBC /* ImageNNetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNNetHelper.swift; sourceTree = "<group>"; };
 		498F8588218C30730026DFBC /* ARKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARKitHelper.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				49742DB02181DFD90065E0C4 /* MobileNet.mlmodel */,
-				4922CAAC21A7A92700FC5122 /* CustomImageClassifier.mlmodel */,
+				4986E9BE21A81618005F04FB /* CustomImageClassifier.mlmodel */,
 				49742DA52181DED80065E0C4 /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
@@ -186,7 +186,7 @@
 				498F8587218C01130026DFBC /* ImageNNetHelper.swift in Sources */,
 				49759E4B2181EF3C0004D7A6 /* CameraHelper.swift in Sources */,
 				49742DB12181DFD90065E0C4 /* MobileNet.mlmodel in Sources */,
-				4922CAAD21A7A92700FC5122 /* CustomImageClassifier.mlmodel in Sources */,
+				4986E9BF21A81618005F04FB /* CustomImageClassifier.mlmodel in Sources */,
 				498F8589218C30730026DFBC /* ARKitHelper.swift in Sources */,
 				498F858B218C44C40026DFBC /* CameraViewController.swift in Sources */,
 			);
