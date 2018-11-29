@@ -53,7 +53,6 @@ class ARKitHelper:NSObject{
     
     //MARK: private
     private weak var sceneView:ARSCNView!
-    private let bubbleDepth : Float = 0.01 // the 'depth' of 3D text
     private var
     orient:UIInterfaceOrientation!,
     viewportSize:CGSize!
@@ -146,7 +145,8 @@ extension ARKitHelper{
         }
     }
     
-    private func createNewBubbleParentNode(_ text : String) -> SCNNode {
+    private func createNew3DBubbleParentNode(_ text : String) -> SCNNode {
+        let bubbleDepth : Float = 0.01 // the 'depth' of 3D text
         // Warning: Creating 3D Text is susceptible to crashing. To reduce chances of crashing; reduce number of polygons, letters, smoothness, etc.
         
         // TEXT BILLBOARD CONSTRAINT
@@ -181,6 +181,47 @@ extension ARKitHelper{
         // BUBBLE PARENT NODE
         let bubbleNodeParent = SCNNode()
         bubbleNodeParent.addChildNode(bubbleNode)
+        bubbleNodeParent.addChildNode(sphereNode)
+        bubbleNodeParent.constraints = [billboardConstraint]
+        
+        return bubbleNodeParent
+    }
+    
+    private func createNewBubbleParentNode(_ text : String) -> SCNNode {
+        // CENTRE POINT NODE
+        let sphere = SCNSphere(radius: 0.005)
+        sphere.firstMaterial?.diffuse.contents = UIColor.cyan
+        let sphereNode = SCNNode(geometry: sphere)
+        
+        let aspectRatio:CGFloat = 20
+        let textureHeight:CGFloat = 64
+        let layer = CALayer()
+        layer.frame = CGRect(x: 0, y: 0, width: textureHeight * aspectRatio, height: textureHeight)
+        layer.backgroundColor = UIColor.clear.cgColor
+        let textLayer = CATextLayer()
+        textLayer.alignmentMode = .center
+        textLayer.frame = layer.bounds
+        textLayer.fontSize = layer.bounds.size.height
+        textLayer.string = text
+        textLayer.foregroundColor = UIColor.orange.cgColor
+        textLayer.display()
+        layer.addSublayer(textLayer)
+        
+        let labelHeight:CGFloat = 0.03
+        let box = SCNPlane(width:  labelHeight * aspectRatio, height: labelHeight)
+        box.firstMaterial?.locksAmbientWithDiffuse = true
+        box.firstMaterial?.diffuse.contents = layer
+        let boxNode = SCNNode(geometry: box)
+        boxNode.pivot = SCNMatrix4MakeTranslation( 0, box.boundingBox.min.y - Float(labelHeight * 0.1), 0)
+        
+        
+        // TEXT BILLBOARD CONSTRAINT
+        let billboardConstraint = SCNBillboardConstraint()
+        billboardConstraint.freeAxes = SCNBillboardAxis.Y
+        
+        // BUBBLE PARENT NODE
+        let bubbleNodeParent = SCNNode()
+        bubbleNodeParent.addChildNode(boxNode)
         bubbleNodeParent.addChildNode(sphereNode)
         bubbleNodeParent.constraints = [billboardConstraint]
         
